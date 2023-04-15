@@ -5,16 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reddit</title>
-    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/9a8ddb3d78.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <script src="./js/dom.js"></script>
-    <script src="./js/script.js"></script>
+    <div class="page">
+      <div id="overlay"></div>
+      <!-- Start Header -->
+      <header>
+        <div class="container">
+          <div class="logo">
+            <h2>
+              <a href="/">Reddit</a>
+            </h2>
+          </div>
+          <ul class="nav">
+            <li class="create-post">
+              <i class="fa-solid fa-plus"></i>
+            </li>
+            <li>
+              <a href="/html/signup.html">Sign Up</a>
+            </li>
+            <li>
+              <a href="/html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Start Posts -->
+      <section class="posts">
+        <div class="container"></div>
+      </section>
+      <!-- End Posts -->
+
+      <!-- Start popup -->
+      <div class="popup">
+        <form method="post">
+          <div class="create">
+            <textarea
+              name="post"
+              id="post"
+              cols="30"
+              rows="6"
+              placeholder="Add Your Post"
+            ></textarea>
+          </div>
+          <button type="submit" id="submit-post">Submit Post</button>
+        </form>
+      </div>
+      <!-- End popup -->
+      <script src="/js/dom.js"></script>
+      <script src="/js/script.js"></script>
+    </div>
   </body>
 </html>

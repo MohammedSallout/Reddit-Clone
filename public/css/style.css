@@ -1,0 +1,356 @@
+/* Start Global Rules */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+  --main-color: #f21b3f;
+  --primary-color: #c21632;
+  --sec-color: #0084c3;
+  --main-duration: 0.5s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #fafafa;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Container */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* End Global Rules */
+
+/* Start Header */
+header {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px,
+    rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo a {
+  color: white;
+  transition: var(--main-duration);
+}
+
+header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .nav li {
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  transition: var(--main-duration);
+}
+
+header .nav li.create-post {
+  cursor: pointer;
+}
+
+header .nav li:hover {
+  background-color: var(--main-color);
+}
+
+header .nav li a {
+  color: white;
+}
+/* End Header */
+
+/* Start Posts */
+.posts {
+  padding: 40px 0;
+}
+
+.posts .post {
+  width: 70%;
+  padding: 20px;
+  background-color: white;
+  margin: 25px 0;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px,
+    rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+.posts .post .top {
+  width: 20%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.posts .post .top .avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.posts .post .top h4 a {
+  color: #333;
+  font-weight: normal;
+  font-size: 18px;
+  transition: var(--main-duration);
+  margin-left: 6px;
+}
+
+.posts .post .top h4 a:hover {
+  text-decoration: underline;
+  color: var(--sec-color);
+}
+
+.posts .post .center {
+  margin: 20px 0;
+}
+
+.posts .post .center p {
+  color: #555;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+.posts .post .bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.posts .post .bottom i {
+  font-size: 30px;
+  color: #aaa;
+}
+
+.posts .post .bottom .comments {
+  margin-left: 5px;
+  color: #333;
+  cursor: pointer;
+  transition: var(--main-duration);
+}
+
+.posts .post .bottom .comments:hover {
+  text-decoration: underline;
+  color: var(--sec-color);
+}
+
+.posts .post .bottom .votes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+  margin-bottom: -12px;
+}
+
+.posts .post .bottom .votes .vote {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: -5px;
+}
+
+.posts .post .bottom .votes #up {
+  font-size: 22px;
+  color: var(--sec-color);
+  cursor: pointer;
+  margin-bottom: -5px;
+  transition: var(--main-duration);
+}
+
+.posts .post .bottom .votes #up:hover {
+  transform: translateY(-3px);
+}
+
+.posts .post .bottom .votes #down {
+  font-size: 22px;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: var(--main-duration);
+}
+
+.posts .post .bottom .votes #down:hover {
+  transform: translateY(3px);
+}
+
+.posts .post .comment {
+  margin-top: 20px;
+}
+
+.posts .post .comment input {
+  width: 60%;
+  padding: 8px 15px;
+  border: none;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.posts .post .comment button {
+  padding: 8px 15px;
+  margin-left: 5px;
+  border: none;
+  border: 1px solid lightgray;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--main-duration);
+}
+
+.posts .post .comment button:hover {
+  background-color: #222;
+}
+
+.posts .post .comment-content {
+  margin-left: 20px;
+}
+
+.hide-comments {
+  display: none;
+}
+
+.posts .post .comment-content .top {
+  margin-top: 30px;
+  margin-bottom: 8px;
+}
+
+.posts .post .comment-content .avatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.posts .post .comment-content .top a {
+  font-size: 14px;
+  color: #333;
+  margin-left: 5px;
+  transition: var(--main-duration);
+}
+
+.posts .post .comment-content .top a:hover {
+  text-decoration: underline;
+  color: var(--sec-color);
+}
+
+.posts .post .comment-content .text p {
+  font-size: 14px;
+  color: #333;
+}
+/* End Posts */
+
+/* Start popup */
+.page {
+  position: relative;
+  min-height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.popup {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  margin: 60px auto;
+  border-radius: 5px;
+  width: 50%;
+  text-align: center;
+  display: none;
+  z-index: 90;
+}
+
+.popup form div {
+  padding: 0 100px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup form textarea {
+  width: 100%;
+  outline: none;
+  border: none;
+  border: 1px solid darkgray;
+  padding: 5px 15px;
+  font-size: 16px;
+}
+
+.popup form textarea:focus {
+  border: 1px solid #111;
+}
+
+.popup form button {
+  border: none;
+  padding: 8px 20px;
+  border-radius: 3px;
+  background-color: #333;
+  cursor: pointer;
+  color: white;
+  transition: var(--main-duration);
+}
+
+.popup form button:hover {
+  background-color: #222;
+}
+/* End popup */
