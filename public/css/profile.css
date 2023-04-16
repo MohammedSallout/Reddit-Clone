@@ -61,7 +61,7 @@ ul {
 
 /* Start Header */
 header {
-  height: 60px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,7 +90,7 @@ header .nav {
 
 header .nav li {
   padding: 0 20px;
-  height: 60px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,9 +119,41 @@ header .nav .avatar img {
 }
 /* End Header */
 
+/* Start Profile */
+.profile {
+  margin: -20px 0;
+}
+
+.profile .profile-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile .profile-top .avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.profile .profile-top h3 a {
+  color: #333;
+  font-weight: normal;
+  font-size: 20px;
+  transition: var(--main-duration);
+  margin-left: 6px;
+}
+
+.profile .profile-top h3 a:hover {
+  text-decoration: underline;
+  color: var(--sec-color);
+}
+/* End Profile */
+
 /* Start Posts */
 .posts {
-  padding: 40px 0;
+  padding: 30px 0;
 }
 
 .posts .post {

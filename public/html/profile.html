@@ -11,7 +11,7 @@
       src="https://kit.fontawesome.com/9a8ddb3d78.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
   </head>
   <body>
     <div class="page">
@@ -40,6 +40,21 @@
       </header>
       <!-- End Header -->
 
+      <!-- Start Profile -->
+      <section class="profile">
+        <div class="container">
+          <div class="profile-top">
+            <!-- <div class="avatar">
+              <img src="https://i.ibb.co/16Sm9dH/avatar.png" alt="avatar" />
+            </div>
+            <h3>
+              <a href="/html/profile.html">Username</a>
+            </h3> -->
+          </div>
+        </div>
+      </section>
+      <!-- Start Profile -->
+
       <!-- Start Posts -->
       <section class="posts">
         <div class="container"></div>
@@ -56,14 +71,15 @@
               cols="30"
               rows="6"
               placeholder="Add Your Post"
+              required
             ></textarea>
           </div>
           <button type="submit" id="submit-post">Submit Post</button>
         </form>
       </div>
       <!-- End popup -->
-      <script src="/js/dom.js"></script>
-      <script src="/js/script.js"></script>
     </div>
+    <script src="/js/dom.js"></script>
+    <script src="/js/profile.js"></script>
   </body>
 </html>
