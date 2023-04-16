@@ -32,23 +32,22 @@ signupForm.addEventListener('submit', (e) => {
     validEmail.textContent = ''
     validPassword.textContent = 'Maximum size is 15*'
   } else {
+    validUsername.textContent = ''
+    validEmail.textContent = ''
     validPassword.textContent = ''
-    window.location.href = '/html/signup.html'
-    success.textContent = 'Sign Up Successfully'
+    fetch('/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: username.value,
+        email: email.value,
+        password: password.value
+      })
+    })
+      .then(() => {
+        window.location.href = '/html/signup.html'
+        success.textContent = 'Sign Up Successfully'
+      })
+      .catch((err) => console.log('error', err))
   }
 })
-
-fetch('/signup', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    username: username.value,
-    email: email.value,
-    password: password.value
-  })
-})
-  .then(() => {
-    window.location.href = '/html/signup.html'
-    success.textContent = 'Sign Up Successfully'
-  })
-  .catch((err) => console.log('error', err))
