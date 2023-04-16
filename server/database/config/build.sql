@@ -6,7 +6,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,
-  password VARCHAR(15) NOT NULL,
+  password VARCHAR(200) NOT NULL,
   avatar VARCHAR(100) DEFAULT 'https://i.ibb.co/16Sm9dH/avatar.png'
 );
 
