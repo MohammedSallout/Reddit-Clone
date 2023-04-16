@@ -1,3 +1,37 @@
+const avatarDiv = document.querySelector('header .nav .avatar')
+
+// eslint-disable-next-line no-unused-vars
+const homeAvatar = () => {
+  const profileLink = document.createElement('a')
+  profileLink.href = '/html/profile.html'
+  avatarDiv.appendChild(profileLink)
+
+  const avatar = document.createElement('img')
+  avatar.src = 'https://i.ibb.co/16Sm9dH/avatar.png'
+  profileLink.appendChild(avatar)
+}
+
+const profileTop = document.querySelector('.profile .profile-top')
+
+// eslint-disable-next-line no-unused-vars
+const userProfile = () => {
+  const avatarDiv = document.createElement('div')
+  avatarDiv.className = 'avatar'
+  profileTop.appendChild(avatarDiv)
+
+  const avatar = document.createElement('img')
+  avatar.src = 'https://i.ibb.co/16Sm9dH/avatar.png'
+  avatarDiv.appendChild(avatar)
+
+  const username = document.createElement('h3')
+  profileTop.appendChild(username)
+
+  const userLink = document.createElement('a')
+  userLink.href = '/html/profile.html'
+  userLink.textContent = 'Username'
+  username.appendChild(userLink)
+}
+
 const commentDOMElement = (comment) => {
   const commentContent = document.createElement('div')
   commentContent.className = 'comment-content'
@@ -16,9 +50,14 @@ const commentDOMElement = (comment) => {
   avatarDiv.appendChild(avatar)
 
   const userLink = document.createElement('a')
-  userLink.href = '#'
+  userLink.href = '/html/profile.html'
   userLink.textContent = 'Username'
   top.appendChild(userLink)
+
+  const createdAt = document.createElement('span')
+  createdAt.className = 'created-at'
+  createdAt.textContent = '2016-06-22 19:10:25'
+  top.appendChild(createdAt)
 
   const textDiv = document.createElement('div')
   textDiv.className = 'text'
@@ -31,6 +70,7 @@ const commentDOMElement = (comment) => {
 
 const container = document.querySelector('.posts .container')
 
+// eslint-disable-next-line no-unused-vars
 const postDOMElement = () => {
   const post = document.createElement('div')
   post.className = 'post'
@@ -52,9 +92,14 @@ const postDOMElement = () => {
   top.appendChild(username)
 
   const userLink = document.createElement('a')
-  userLink.href = '#'
+  userLink.href = '/html/profile.html'
   userLink.textContent = 'Username'
   username.appendChild(userLink)
+
+  const createdAt = document.createElement('span')
+  createdAt.className = 'created-at'
+  createdAt.textContent = '2016-06-22 19:10:25'
+  top.appendChild(createdAt)
 
   const center = document.createElement('div')
   center.className = 'center'
@@ -122,5 +167,3 @@ const postDOMElement = () => {
 
   commentDOMElement(comment)
 }
-
-postDOMElement()

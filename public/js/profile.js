@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-undef
 homeAvatar()
 // eslint-disable-next-line no-undef
+userProfile()
+// eslint-disable-next-line no-undef
 postDOMElement()
 
 const comments = document.querySelector('.comments')
