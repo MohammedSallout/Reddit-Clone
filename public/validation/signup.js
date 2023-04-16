@@ -37,3 +37,18 @@ signupForm.addEventListener('submit', (e) => {
     success.textContent = 'Sign Up Successfully'
   }
 })
+
+fetch('/signup', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    username: username.value,
+    email: email.value,
+    password: password.value
+  })
+})
+  .then(() => {
+    window.location.href = '/html/signup.html'
+    success.textContent = 'Sign Up Successfully'
+  })
+  .catch((err) => console.log('error', err))
