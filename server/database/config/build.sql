@@ -26,9 +26,9 @@ CREATE TABLE comments (
 );
 
 INSERT INTO users (username, email, password)
-VALUES ('MohammedS', 'mohammed@email.com', 'mohammed123'),
-      ('AhmadM', 'ahmad@email.com', 'ahmad123'),
-      ('MaiA', 'mai@email.com', 'maia123');
+VALUES ('Mohammed', 'mohammed@m.com', '$2a$10$AlfHFyavmwNG2U4AApTeF.XBR.7SSEmmc.DWA42NonvWgigGlbqUe'),
+      ('Ahmad', 'ahmad@a.com', '$2a$10$fVWSqreMtOlOcuNdUCimuut4Yi1vir8AAwQmrEFKWaFZmb86YxDQG'),
+      ('Hadeel', 'hadeel@h.com', '$2a$10$freawBzKw187y3fN7ZSy5ORkqtxSViSxPNEbOM6MlzfY6xJCh8MWa');
 
 INSERT INTO posts (content, user_id)
 VALUES ('Node.js is a cross-platform, open-source server environment that can run on Windows, 

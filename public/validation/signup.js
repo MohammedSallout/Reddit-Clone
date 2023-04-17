@@ -45,9 +45,16 @@ signupForm.addEventListener('submit', (e) => {
       })
     })
       .then(() => {
-        window.location.href = '/html/signup.html'
+        // window.location.href = '/html/signup.html'
         success.textContent = 'Sign Up Successfully'
       })
       .catch((err) => console.log('error', err))
   }
+  username.value = ''
+  email.value = ''
+  password.value = ''
+
+  setTimeout(() => {
+    success.textContent = ''
+  }, 3000)
 })
