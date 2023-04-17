@@ -23,8 +23,24 @@ loginForm.addEventListener('submit', (e) => {
     validEmail.textContent = ''
     validPassword.textContent = 'Maximum size is 15*'
   } else {
+    validEmail.textContent = ''
     validPassword.textContent = ''
-    window.location.href = '/html'
-    success.textContent = 'Login Successfully'
+    const emailValue = email.value
+    const passwordValue = password.value
+    const data = {
+      email: emailValue,
+      password: passwordValue
+    }
+    fetch('/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        success.textContent = 'Login Successfully'
+        window.location.href = '/'
+      })
+      .catch((err) => console.log('error', err))
   }
 })
