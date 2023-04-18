@@ -1,4 +1,23 @@
+const jwt = require('jsonwebtoken')
 const addUsers = require('./users/signup')
 const loginUsers = require('./users/login')
+const addPosts = require('./posts/addPosts')
+const getPosts = require('./posts/getPosts')
 
-module.exports = { addUsers, loginUsers }
+const checkAuth = (req, res, next) => {
+  const token = req.cookies.token
+  if (token) {
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+      if (err) {
+        res.json({ msg: 'verify token error' })
+      } else {
+        req.myToken = decoded
+        next()
+      }
+    })
+  } else {
+    res.redirect('/html')
+  }
+}
+
+module.exports = { checkAuth, addUsers, loginUsers, addPosts, getPosts }

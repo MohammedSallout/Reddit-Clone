@@ -48,14 +48,16 @@
 
       <!-- Start popup -->
       <div class="popup">
-        <form method="post">
+        <form id="post-form">
           <div class="create">
             <textarea
               name="post"
               id="post"
               cols="30"
               rows="6"
+              maxlength="200"
               placeholder="Add Your Post"
+              required
             ></textarea>
           </div>
           <button type="submit" id="submit-post">Submit Post</button>
