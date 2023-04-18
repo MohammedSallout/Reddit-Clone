@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const addUsers = require('./users/signup')
 const loginUsers = require('./users/login')
+const logout = require('./users/logout')
 const addPosts = require('./posts/addPosts')
 const getPosts = require('./posts/getPosts')
 
@@ -20,4 +21,4 @@ const checkAuth = (req, res, next) => {
   }
 }
 
-module.exports = { checkAuth, addUsers, loginUsers, addPosts, getPosts }
+module.exports = { checkAuth, addUsers, loginUsers, logout, addPosts, getPosts }
