@@ -11,4 +11,8 @@ const loginSchema = Joi.object({
   password: Joi.string().min(6).max(15).required()
 })
 
-module.exports = { signUpSchema, loginSchema }
+const postSchema = Joi.object({
+  post: Joi.string().max(200).required()
+})
+
+module.exports = { signUpSchema, loginSchema, postSchema }

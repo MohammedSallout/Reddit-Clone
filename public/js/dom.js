@@ -1,6 +1,5 @@
 const avatarDiv = document.querySelector('header .nav .avatar')
 
-// eslint-disable-next-line no-unused-vars
 const homeAvatar = () => {
   const profileLink = document.createElement('a')
   profileLink.href = '/html/profile.html'
@@ -10,6 +9,8 @@ const homeAvatar = () => {
   avatar.src = 'https://i.ibb.co/16Sm9dH/avatar.png'
   profileLink.appendChild(avatar)
 }
+
+homeAvatar()
 
 const profileTop = document.querySelector('.profile .profile-top')
 
@@ -71,7 +72,7 @@ const commentDOMElement = (comment) => {
 const container = document.querySelector('.posts .container')
 
 // eslint-disable-next-line no-unused-vars
-const postDOMElement = () => {
+const postDOMElement = (postData) => {
   const post = document.createElement('div')
   post.className = 'post'
   container.appendChild(post)
@@ -85,7 +86,7 @@ const postDOMElement = () => {
   top.appendChild(avatarDiv)
 
   const avatar = document.createElement('img')
-  avatar.src = 'https://i.ibb.co/16Sm9dH/avatar.png'
+  avatar.src = postData.avatar
   avatarDiv.appendChild(avatar)
 
   const username = document.createElement('h4')
@@ -93,12 +94,12 @@ const postDOMElement = () => {
 
   const userLink = document.createElement('a')
   userLink.href = '/html/profile.html'
-  userLink.textContent = 'Username'
+  userLink.textContent = postData.username
   username.appendChild(userLink)
 
   const createdAt = document.createElement('span')
   createdAt.className = 'created-at'
-  createdAt.textContent = '2016-06-22 19:10:25'
+  createdAt.textContent = postData.created_at
   top.appendChild(createdAt)
 
   const center = document.createElement('div')
@@ -106,7 +107,7 @@ const postDOMElement = () => {
   post.appendChild(center)
 
   const postText = document.createElement('p')
-  postText.textContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimusaut veritatis dolorum ullam accusantium minima consequuntur.'
+  postText.textContent = postData.content
   center.appendChild(postText)
 
   const bottom = document.createElement('div')
@@ -166,4 +167,32 @@ const postDOMElement = () => {
   form.appendChild(commentBtn)
 
   commentDOMElement(comment)
+
+  const comments = document.querySelector('.comments')
+  comments.addEventListener('click', (e) => {
+    comment.classList.toggle('hide-comments')
+  })
 }
+
+const postForm = document.getElementById('post-form')
+const postContent = document.getElementById('post')
+
+postForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  fetch('/add-post', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      post: postContent.value
+    })
+  })
+    .then(() => {
+      window.location.href = '/'
+    })
+    .catch((err) => console.log(err))
+})
+
+fetch('/posts')
+  .then((res) => res.json())
+  .then((data) => data.forEach((postData) => postDOMElement(postData)))
+  .catch((err) => console.log(err))

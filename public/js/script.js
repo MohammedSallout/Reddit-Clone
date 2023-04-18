@@ -1,37 +1,28 @@
-// eslint-disable-next-line no-undef
-homeAvatar()
-// eslint-disable-next-line no-undef
-postDOMElement()
-
-const comments = document.querySelector('.comments')
-const comment = document.querySelector('.comment')
-
-comments.addEventListener('click', (e) => {
-  comment.classList.toggle('hide-comments')
-})
-
 /* Start popup */
 const createPost = document.querySelector('.create-post')
 const popup = document.querySelector('.popup')
 const submitPost = document.getElementById('submit-post')
 const overlay = document.getElementById('overlay')
+const post = document.getElementById('post')
 
 createPost.addEventListener('click', showPopup)
 
 function showPopup () {
   popup.style.display = 'block'
   overlay.className = 'overlay'
+  post.focus()
 }
 
-submitPost.addEventListener('click', closePopup)
-overlay.addEventListener('click', closeOverlay)
+submitPost.addEventListener('click', () => {
+  if (post.value !== '') {
+    popup.style.display = 'none'
+    overlay.removeAttribute('class')
+  }
+})
 
-function closePopup () {
-  closeOverlay()
-}
-
-function closeOverlay () {
+overlay.addEventListener('click', () => {
   popup.style.display = 'none'
   overlay.removeAttribute('class')
-}
+})
+
 /* End popup */
