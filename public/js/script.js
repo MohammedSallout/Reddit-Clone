@@ -1,9 +1,11 @@
 const signUpIcon = document.querySelector('header .nav li.signup')
+const loginIcon = document.querySelector('header .nav li.login')
 const logoutIcon = document.querySelector('header .nav li.logout')
 const avatarIcon = document.querySelector('header .nav .avatar')
 
 if (document.cookie.includes('token')) {
   signUpIcon.style.display = 'none'
+  loginIcon.style.display = 'none'
 }
 
 logoutIcon.addEventListener('click', () => {
