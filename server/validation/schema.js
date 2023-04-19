@@ -15,4 +15,8 @@ const postSchema = Joi.object({
   post: Joi.string().max(200).required()
 })
 
-module.exports = { signUpSchema, loginSchema, postSchema }
+const commentSchema = Joi.object({
+  comment: Joi.string().max(100).required()
+})
+
+module.exports = { signUpSchema, loginSchema, postSchema, commentSchema }

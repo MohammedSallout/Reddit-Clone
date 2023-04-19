@@ -4,6 +4,8 @@ const loginUsers = require('./users/login')
 const logout = require('./users/logout')
 const addPosts = require('./posts/addPosts')
 const getPosts = require('./posts/getPosts')
+const addComments = require('./comments/addComments')
+const getComments = require('./comments/getComments')
 
 const checkAuth = (req, res, next) => {
   const token = req.cookies.token
@@ -21,4 +23,4 @@ const checkAuth = (req, res, next) => {
   }
 }
 
-module.exports = { checkAuth, addUsers, loginUsers, logout, addPosts, getPosts }
+module.exports = { checkAuth, addUsers, loginUsers, logout, addPosts, getPosts, addComments, getComments }

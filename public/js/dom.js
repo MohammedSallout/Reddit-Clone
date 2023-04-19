@@ -33,7 +33,7 @@ const userProfile = () => {
   username.appendChild(userLink)
 }
 
-const commentDOMElement = (comment) => {
+const commentDOMElement = (comment, commentData) => {
   const commentContent = document.createElement('div')
   commentContent.className = 'comment-content'
   comment.appendChild(commentContent)
@@ -47,17 +47,17 @@ const commentDOMElement = (comment) => {
   top.appendChild(avatarDiv)
 
   const avatar = document.createElement('img')
-  avatar.src = 'https://i.ibb.co/16Sm9dH/avatar.png'
+  avatar.src = commentData.avatar
   avatarDiv.appendChild(avatar)
 
   const userLink = document.createElement('a')
   userLink.href = '/html/profile.html'
-  userLink.textContent = 'Username'
+  userLink.textContent = commentData.username
   top.appendChild(userLink)
 
   const createdAt = document.createElement('span')
   createdAt.className = 'created-at'
-  createdAt.textContent = '2016-06-22 19:10:25'
+  createdAt.textContent = commentData.created_at
   top.appendChild(createdAt)
 
   const textDiv = document.createElement('div')
@@ -65,7 +65,7 @@ const commentDOMElement = (comment) => {
   commentContent.appendChild(textDiv)
 
   const commentText = document.createElement('p')
-  commentText.textContent = 'Wow, good job my friend.'
+  commentText.textContent = commentData.message
   textDiv.appendChild(commentText)
 }
 
@@ -74,6 +74,7 @@ const container = document.querySelector('.posts .container')
 // eslint-disable-next-line no-unused-vars
 const postDOMElement = (postData) => {
   const post = document.createElement('div')
+  post.id = postData.id
   post.className = 'post'
   container.appendChild(post)
 
@@ -151,8 +152,6 @@ const postDOMElement = (postData) => {
   post.appendChild(comment)
 
   const form = document.createElement('form')
-  form.action = ''
-  form.method = 'post'
   comment.appendChild(form)
 
   const input = document.createElement('input')
@@ -166,12 +165,41 @@ const postDOMElement = (postData) => {
   commentBtn.textContent = 'Comment'
   form.appendChild(commentBtn)
 
-  commentDOMElement(comment)
-
-  const comments = document.querySelector('.comments')
-  comments.addEventListener('click', (e) => {
-    comment.classList.toggle('hide-comments')
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    fetch('/add-comment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        comment: input.value,
+        postId: post.id
+      })
+    })
+      .then(() => {
+        window.location.href = '/'
+      })
+      .catch((err) => console.log(err))
   })
+
+  const comments = document.querySelectorAll('.comments')
+
+  comments.forEach((ele, i) => {
+    const x = ele.id = postData.id
+    if (+x === i + 1) {
+      ele.addEventListener('click', () => {
+        comment.classList.toggle('hide-comments')
+      })
+    }
+  })
+
+  fetch('/comments')
+    .then((res) => res.json())
+    .then((data) => data.forEach((commentData) => {
+      if (+commentData.id === +post.id) {
+        commentDOMElement(comment, commentData)
+      }
+    }))
+    .catch((err) => console.log(err))
 }
 
 const postForm = document.getElementById('post-form')
