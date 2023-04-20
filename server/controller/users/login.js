@@ -23,14 +23,14 @@ const loginUsers = (req, res) => {
                   avatar: data.rows[0].avatar
                 }
                 const token = jwt.sign(payload, process.env.SECRET_KEY)
-                res.cookie('token', token).json({ msg: 'tokened successfully' })
+                res.cookie('token', token).json({ err: false, msg: 'Login successfully' })
               } else {
-                res.status(400).json({ msg: 'wrong password' })
+                res.status(400).json({ err: true, msg: 'wrong password' })
               }
             })
             .catch((err) => console.log(err))
         } else {
-          res.status(401).json({ msg: 'please create an account first' })
+          res.status(401).json({ err: true, msg: 'please create an account first' })
         }
       })
       .catch(err => res.status(500).json({ msg: err }))

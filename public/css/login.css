@@ -76,6 +76,10 @@ button[type="submit"]:hover {
   color: green;
 }
 
+.failed {
+  color: red;
+}
+
 p {
   font-size: 18px;
   padding: 10px;
