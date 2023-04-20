@@ -48,6 +48,16 @@ submitPost.addEventListener('click', () => {
   }
 })
 
+post.addEventListener('keyup', () => {
+  if (post.value.split('').every((char) => char === ' ')) {
+    submitPost.setAttribute('disabled', 'disabled')
+    submitPost.style.cursor = 'auto'
+  } else {
+    submitPost.removeAttribute('disabled')
+    submitPost.style.cursor = 'pointer'
+  }
+})
+
 overlay.addEventListener('click', () => {
   popup.style.display = 'none'
   overlay.removeAttribute('class')
@@ -63,7 +73,7 @@ if (!document.cookie.includes('token')) {
   })
 
   document.addEventListener('click', (e) => {
-    if (e.target.textContent === 'Comment') {
+    if (e.target.textContent === 'Add Comment') {
       e.target.setAttribute('disabled', 'disabled')
       alert('Login To Your Account First !!')
     }

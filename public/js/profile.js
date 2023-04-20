@@ -191,8 +191,18 @@ const postDOMElement = (postData) => {
     form.appendChild(input)
 
     const commentBtn = document.createElement('button')
-    commentBtn.textContent = 'Comment'
+    commentBtn.textContent = 'Add Comment'
     form.appendChild(commentBtn)
+
+    input.addEventListener('keyup', () => {
+      if (input.value.split('').every((char) => char === ' ')) {
+        commentBtn.setAttribute('disabled', 'disabled')
+        commentBtn.style.cursor = 'auto'
+      } else {
+        commentBtn.removeAttribute('disabled')
+        commentBtn.style.cursor = 'pointer'
+      }
+    })
 
     left.appendChild(form)
 
@@ -234,10 +244,12 @@ postForm.addEventListener('submit', (e) => {
     })
   })
     .then(() => {
-      // window.location.href = '/'
       fetch(`/profile/user/${userId}`)
         .then((res) => res.json())
-        .then((data) => postDOMElement(data))
+        .then((data) => {
+          postDOMElement(data)
+          postContent.value = ''
+        })
         .catch((err) => console.log(err))
     })
     .catch((err) => console.log(err))

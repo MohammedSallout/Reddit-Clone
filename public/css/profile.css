@@ -314,7 +314,7 @@ header .nav li.logout {
   transition: var(--main-duration);
 }
 
-.posts .post .comment button:hover {
+.posts .post .left button:hover {
   background-color: #222;
 }
 
