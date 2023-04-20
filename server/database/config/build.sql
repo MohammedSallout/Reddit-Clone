@@ -38,8 +38,8 @@ VALUES ('Node.js is a cross-platform, open-source server environment that can ru
       that provides a robust set of features for web and mobile applications.', 3);
 
 INSERT INTO comments (message, user_id, post_id)
-VALUES ('Thanks For Your Information.', 1, 1),
+VALUES ('Thanks For Your Information.', 3, 1),
       ('Wow, This is useful information.', 2, 1),
-      ('Yes This Is Best Concept Of Express Js.', 3, 2);
+      ('Yes This Is Best Concept Of Express Js.', 1, 2);
 
 COMMIT;

@@ -17,7 +17,7 @@ const commentDOMElement = (comment, commentData) => {
   commentData.forEach(ele => {
     const commentContent = document.createElement('div')
     commentContent.className = 'comment-content'
-    comment.appendChild(commentContent)
+    comment.prepend(commentContent)
 
     const top = document.createElement('div')
     top.className = 'top'
@@ -59,7 +59,7 @@ const postDOMElement = (postData) => {
     const post = document.createElement('div')
     post.id = ele.id
     post.className = 'post'
-    container.appendChild(post)
+    container.prepend(post)
 
     const top = document.createElement('div')
     top.className = 'top'
