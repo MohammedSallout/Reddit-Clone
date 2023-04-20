@@ -1,6 +1,10 @@
 const profileTop = document.querySelector('.profile .profile-top')
 
+const userId = window.location.href.split('http://localhost:8000/profile/')[1]
+// console.log(userId)
+
 const userProfile = (userData) => {
+  console.log(userData)
   const avatarDiv = document.createElement('div')
   avatarDiv.className = 'avatar'
   profileTop.appendChild(avatarDiv)
@@ -13,12 +17,12 @@ const userProfile = (userData) => {
   profileTop.appendChild(username)
 
   const userLink = document.createElement('a')
-  userLink.href = '/html/profile.html'
+  userLink.href = `/profile/${userData.id}`
   userLink.textContent = userData.username
   username.appendChild(userLink)
 }
 
-fetch('/users')
+fetch(`/users/${userId}`)
   .then((res) => res.json())
   .then((data) => data.forEach((userData) => userProfile(userData)))
   .catch((err) => console.log(err))
@@ -27,12 +31,16 @@ const avatarDiv = document.querySelector('header .nav .avatar')
 
 const homeAvatar = (userData) => {
   const profileLink = document.createElement('a')
-  profileLink.href = '/html/profile.html'
+  profileLink.href = `/profile/${userData.id}`
   avatarDiv.appendChild(profileLink)
 
   const avatar = document.createElement('img')
   avatar.src = userData.avatar
   profileLink.appendChild(avatar)
+
+  const userName = document.createElement('span')
+  userName.textContent = userData.username
+  profileLink.appendChild(userName)
 }
 
 fetch('/users')
@@ -60,7 +68,7 @@ const commentDOMElement = (comment, commentData) => {
     avatarDiv.appendChild(avatar)
 
     const userLink = document.createElement('a')
-    userLink.href = '/html/profile.html'
+    userLink.href = `/profile/${ele.user_id}`
     userLink.textContent = ele.username
     top.appendChild(userLink)
 
@@ -106,7 +114,7 @@ const postDOMElement = (postData) => {
 
     const userLink = document.createElement('a')
     userLink.textContent = ele.username
-    userLink.href = '/html/profile.html'
+    userLink.href = `/profile/${ele.user_id}`
     username.appendChild(userLink)
 
     const createdAt = document.createElement('span')
@@ -227,7 +235,7 @@ postForm.addEventListener('submit', (e) => {
   })
     .then(() => {
       // window.location.href = '/'
-      fetch('/user-posts')
+      fetch(`/profile/user/${userId}`)
         .then((res) => res.json())
         .then((data) => postDOMElement(data))
         .catch((err) => console.log(err))
@@ -235,7 +243,7 @@ postForm.addEventListener('submit', (e) => {
     .catch((err) => console.log(err))
 })
 
-fetch('/user-posts')
+fetch(`/profile/user/${userId}`)
   .then((res) => res.json())
   .then((data) => postDOMElement(data))
   .catch((err) => console.log(err))

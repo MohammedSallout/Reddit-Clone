@@ -1,16 +1,23 @@
 const avatarDiv = document.querySelector('header .nav .avatar')
 
-const homeAvatar = () => {
+const homeAvatar = (userData) => {
   const profileLink = document.createElement('a')
-  profileLink.href = '/html/profile.html'
+  profileLink.href = `/profile/${userData.id}`
   avatarDiv.appendChild(profileLink)
 
   const avatar = document.createElement('img')
-  avatar.src = 'https://i.ibb.co/16Sm9dH/avatar.png'
+  avatar.src = userData.avatar
   profileLink.appendChild(avatar)
+
+  const userName = document.createElement('span')
+  userName.textContent = userData.username
+  profileLink.appendChild(userName)
 }
 
-homeAvatar()
+fetch('/users')
+  .then((res) => res.json())
+  .then((data) => data.forEach((userData) => homeAvatar(userData)))
+  .catch((err) => console.log(err))
 
 const commentDOMElement = (comment, commentData) => {
   comment.innerHTML = ''
@@ -32,7 +39,7 @@ const commentDOMElement = (comment, commentData) => {
     avatarDiv.appendChild(avatar)
 
     const userLink = document.createElement('a')
-    userLink.href = '/html/profile.html'
+    userLink.href = `/profile/${ele.user_id}`
     userLink.textContent = ele.username
     top.appendChild(userLink)
 
@@ -78,7 +85,7 @@ const postDOMElement = (postData) => {
 
     const userLink = document.createElement('a')
     userLink.textContent = ele.username
-    userLink.href = '/html/profile.html'
+    userLink.href = `/profile/${ele.user_id}`
     username.appendChild(userLink)
 
     const createdAt = document.createElement('span')

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const { getUsersQuery, getUsersIdQuery } = require('../../database/query')
+const { getUsersQuery, getUsersIdQuery, getUserPostsIdQuery } = require('../../database/query')
 
 const getUsers = (req, res) => {
   const token = req.cookies.token
@@ -25,4 +25,11 @@ const getUsersId = (req, res) => {
     .catch((err) => console.log(err))
 }
 
-module.exports = { getUsers, getUsersId }
+const getUserPostsId = (req, res) => {
+  const userId = req.params.userId
+
+  getUserPostsIdQuery(userId)
+    .then((data) => res.status(200).json(data.rows))
+    .catch(console.log)
+}
+module.exports = { getUsers, getUsersId, getUserPostsId }
