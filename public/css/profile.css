@@ -88,7 +88,7 @@ header .nav {
   align-items: center;
 }
 
-header .nav li {
+header .nav li, header .nav div {
   padding: 0 20px;
   height: 80px;
   display: flex;
@@ -99,11 +99,15 @@ header .nav li {
   transition: var(--main-duration);
 }
 
+header .nav div {
+  padding: 0 10px;
+}
+
 header .nav li.create-post {
   cursor: pointer;
 }
 
-header .nav li:hover {
+header .nav li:hover, header .nav div:hover {
   background-color: var(--main-color);
 }
 
@@ -115,8 +119,18 @@ header .nav .avatar img {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 5px;
+}
+
+header .nav .avatar a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .nav .avatar span {
+  color: #fff;
+  font-size: 15px;
 }
 
 header .nav li.logout {
@@ -300,7 +314,7 @@ header .nav li.logout {
   transition: var(--main-duration);
 }
 
-.posts .post .comment button:hover {
+.posts .post .left button:hover {
   background-color: #222;
 }
 

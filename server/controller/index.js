@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken')
 const addUsers = require('./users/signup')
 const loginUsers = require('./users/login')
 const logout = require('./users/logout')
-const { getUsers, getUsersId } = require('./users/getUsers')
+const { getUsers, getUsersId, getUserPostsId } = require('./users/getUsers')
+const profilePage = require('./users/userProfile')
 const addPosts = require('./posts/addPosts')
 const getPosts = require('./posts/getPosts')
 const getUserPosts = require('./posts/getUserPosts')
@@ -25,4 +26,4 @@ const checkAuth = (req, res, next) => {
   }
 }
 
-module.exports = { checkAuth, addUsers, loginUsers, getUsersId, logout, addPosts, getPosts, getUserPosts, addComments, getComments, getUsers }
+module.exports = { checkAuth, addUsers, loginUsers, profilePage, getUserPostsId, getUsersId, logout, addPosts, getPosts, getUserPosts, addComments, getComments, getUsers }

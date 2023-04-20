@@ -30,10 +30,14 @@ signupForm.addEventListener('submit', (e) => {
     validUsername.style.display = 'none'
     validEmail.style.display = 'block'
     validEmail.textContent = 'Wrong email value*'
-  } else if (email.value.length >= 20) {
+  } else if (email.value.length >= 30) {
     validUsername.style.display = 'none'
     validEmail.style.display = 'block'
-    validEmail.textContent = 'Maximum size is 20*'
+    validEmail.textContent = 'Maximum size is 30*'
+  } else if (email.value.split('').includes(' ')) {
+    validUsername.style.display = 'none'
+    validEmail.style.display = 'block'
+    validEmail.textContent = 'Can not use space character in email'
   } else if (password.value === '') {
     validEmail.style.display = 'none'
     validPassword.style.display = 'block'
@@ -42,10 +46,10 @@ signupForm.addEventListener('submit', (e) => {
     validEmail.style.display = 'none'
     validPassword.style.display = 'block'
     validPassword.textContent = 'Minimum size is 6*'
-  } else if (password.value.length > 15) {
+  } else if (password.value.length > 30) {
     validEmail.style.display = 'none'
     validPassword.style.display = 'block'
-    validPassword.textContent = 'Maximum size is 15*'
+    validPassword.textContent = 'Maximum size is 30*'
   } else {
     validUsername.style.display = 'none'
     validEmail.style.display = 'none'
