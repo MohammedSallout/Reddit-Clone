@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reddit</title>
+    <title>Profile</title>
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
     <!-- Font Awesome -->
     <script
@@ -28,13 +28,16 @@
             <li class="create-post">
               <i class="fa-solid fa-plus"></i>
             </li>
-            <li>
+            <li class="signup">
               <a href="/html/signup.html">Sign Up</a>
             </li>
-            <li>
+            <li class="login">
               <a href="/html">Login</a>
             </li>
             <div class="avatar"></div>
+            <li class="logout">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </li>
           </ul>
         </div>
       </header>
@@ -63,13 +66,14 @@
 
       <!-- Start popup -->
       <div class="popup">
-        <form method="post">
+        <form id="post-form">
           <div class="create">
             <textarea
               name="post"
               id="post"
               cols="30"
               rows="6"
+              maxlength="200"
               placeholder="Add Your Post"
               required
             ></textarea>
@@ -79,7 +83,7 @@
       </div>
       <!-- End popup -->
     </div>
-    <script src="/js/dom.js"></script>
     <script src="/js/profile.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
