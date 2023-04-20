@@ -1,7 +1,8 @@
 const { getCommentsQuery } = require('../../database/query')
 
 const getComments = (req, res) => {
-  getCommentsQuery()
+  const postId = req.params.postId
+  getCommentsQuery(postId)
     .then((data) => res.status(200).json(data.rows))
     .catch((err) => console.log(err))
 }

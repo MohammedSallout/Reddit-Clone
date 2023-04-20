@@ -2,6 +2,7 @@ const signUpIcon = document.querySelector('header .nav li.signup')
 const loginIcon = document.querySelector('header .nav li.login')
 const logoutIcon = document.querySelector('header .nav li.logout')
 const avatarIcon = document.querySelector('header .nav .avatar')
+const createPostBtn = document.querySelector('header .nav .create-post')
 
 if (document.cookie.includes('token')) {
   signUpIcon.style.display = 'none'
@@ -53,3 +54,18 @@ overlay.addEventListener('click', () => {
 })
 
 /* End popup */
+
+if (!document.cookie.includes('token')) {
+  createPostBtn.addEventListener('click', () => {
+    alert('Login To Your Account First !!')
+    popup.style.display = 'none'
+    overlay.removeAttribute('class')
+  })
+
+  document.addEventListener('click', (e) => {
+    if (e.target.textContent === 'Comment') {
+      e.target.setAttribute('disabled', 'disabled')
+      alert('Login To Your Account First !!')
+    }
+  })
+}

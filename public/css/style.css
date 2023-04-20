@@ -245,18 +245,20 @@ header .nav li.logout {
   margin-top: 20px;
 }
 
-.posts .post .comment input {
+.posts .post .left input {
   width: 60%;
   padding: 8px 15px;
+  margin-top: 20px;
   border: none;
   outline: none;
   border: 1px solid lightgray;
   border-radius: 5px;
 }
 
-.posts .post .comment button {
+.posts .post .left button {
   padding: 8px 15px;
   margin-left: 5px;
+  margin-top: 20px;
   border: none;
   border: 1px solid lightgray;
   background-color: #333;
