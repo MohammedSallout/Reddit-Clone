@@ -13,9 +13,11 @@ const getUsers = (req, res) => {
     })
   }
   const { myToken } = req
-  getUsersQuery(myToken)
-    .then((data) => res.status(200).json(data.rows))
-    .catch((err) => console.log(err))
+  if (myToken) {
+    getUsersQuery(myToken)
+      .then((data) => res.status(200).json(data.rows))
+      .catch((err) => console.log(err))
+  }
 }
 
 const getUsersId = (req, res) => {

@@ -7,5 +7,6 @@ const getUserPostsQuery = require('./posts/getUserPosts')
 const commentQuery = require('./comments/comment')
 const getCommentsQuery = require('./comments/getComments')
 const getUserPostsIdQuery = require('./posts/getUserPostsId')
+const deletePostQuery = require('./posts/deletePost')
 
-module.exports = { signUpQuery, getUserPostsIdQuery, loginQuery, getUsersIdQuery, postQuery, getPostsQuery, getUserPostsQuery, commentQuery, getCommentsQuery, getUsersQuery }
+module.exports = { signUpQuery, getUserPostsIdQuery, loginQuery, getUsersIdQuery, postQuery, deletePostQuery, getPostsQuery, getUserPostsQuery, commentQuery, getCommentsQuery, getUsersQuery }
