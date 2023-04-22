@@ -1,4 +1,4 @@
-const { checkAuth, addUsers, getUsersId, getUserPostsId, loginUsers, addPosts, getPosts, profilePage, getUserPosts, logout, addComments, getComments, getUsers } = require('../controller')
+const { checkAuth, addUsers, getUsersId, getUserPostsId, loginUsers, addPosts, deletePost, getPosts, profilePage, getUserPosts, logout, addComments, getComments, getUsers } = require('../controller')
 const router = require('express').Router()
 
 router.post('/signup', addUsers)
@@ -13,5 +13,6 @@ router.get('/users', getUsers)
 router.get('/users/:id', getUsersId)
 router.get('/profile/:userId', profilePage)
 router.get('/profile/user/:userId', getUserPostsId)
+router.delete('/delete-post', deletePost)
 
 module.exports = router

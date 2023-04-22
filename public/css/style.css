@@ -19,7 +19,7 @@ html {
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #fafafa;
+  background-color: #efefef;
 }
 
 a {
@@ -148,6 +148,7 @@ header .nav li.logout {
   padding: 20px;
   background-color: white;
   margin: 25px 0;
+  border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px,
     rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 }

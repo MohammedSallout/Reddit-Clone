@@ -5,6 +5,7 @@ const logout = require('./users/logout')
 const { getUsers, getUsersId, getUserPostsId } = require('./users/getUsers')
 const profilePage = require('./users/userProfile')
 const addPosts = require('./posts/addPosts')
+const deletePost = require('./posts/deletePost')
 const getPosts = require('./posts/getPosts')
 const getUserPosts = require('./posts/getUserPosts')
 const addComments = require('./comments/addComments')
@@ -26,4 +27,4 @@ const checkAuth = (req, res, next) => {
   }
 }
 
-module.exports = { checkAuth, addUsers, loginUsers, profilePage, getUserPostsId, getUsersId, logout, addPosts, getPosts, getUserPosts, addComments, getComments, getUsers }
+module.exports = { checkAuth, addUsers, loginUsers, profilePage, getUserPostsId, getUsersId, logout, addPosts, deletePost, getPosts, getUserPosts, addComments, getComments, getUsers }

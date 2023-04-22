@@ -4,7 +4,6 @@ const userId = window.location.href.split('http://localhost:8000/profile/')[1]
 // console.log(userId)
 
 const userProfile = (userData) => {
-  console.log(userData)
   const avatarDiv = document.createElement('div')
   avatarDiv.className = 'avatar'
   profileTop.appendChild(avatarDiv)
@@ -116,6 +115,32 @@ const postDOMElement = (postData) => {
     userLink.textContent = ele.username
     userLink.href = `/profile/${ele.user_id}`
     username.appendChild(userLink)
+
+    fetch('/users')
+      .then((res) => res.json())
+      .then((data) => data.forEach((userData) => {
+        if (userData.username === ele.username) {
+          const deletePost = document.createElement('i')
+          deletePost.id = 'remove-post'
+          deletePost.className = 'fa-solid fa-trash-can'
+          post.appendChild(deletePost)
+
+          deletePost.addEventListener('click', (e) => {
+            alert('Are you sure from delete this post ?')
+            fetch('/delete-post', {
+              method: 'DELETE',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                postId: ele.id
+              })
+            })
+              .then((res) => res.json())
+              .then(() => e.target.parentElement.remove())
+              .catch((err) => console.log(err))
+          })
+        }
+      }))
+      .catch((err) => console.log(err))
 
     const createdAt = document.createElement('span')
     createdAt.className = 'created-at'
