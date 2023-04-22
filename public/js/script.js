@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 const signUpIcon = document.querySelector('header .nav li.signup')
 const loginIcon = document.querySelector('header .nav li.login')
 const logoutIcon = document.querySelector('header .nav li.logout')

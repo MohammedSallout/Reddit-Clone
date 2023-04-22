@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 const avatarDiv = document.querySelector('header .nav .avatar')
 
 const homeAvatar = (userData) => {
