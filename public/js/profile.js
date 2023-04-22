@@ -1,7 +1,8 @@
+const fetch = require('node-fetch')
+
 const profileTop = document.querySelector('.profile .profile-top')
 
 const userId = window.location.href.split('http://localhost:8000/profile/')[1]
-// console.log(userId)
 
 const userProfile = (userData) => {
   const avatarDiv = document.createElement('div')
