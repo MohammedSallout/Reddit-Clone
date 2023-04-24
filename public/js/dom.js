@@ -10,7 +10,10 @@ const homeAvatar = (userData) => {
   profileLink.appendChild(avatar)
 
   const userName = document.createElement('span')
-  userName.textContent = userData.username
+  userName.textContent = 'waiting...'
+  setTimeout(() => {
+    userName.textContent = userData.username
+  }, 3600)
   profileLink.appendChild(userName)
 }
 

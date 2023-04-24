@@ -61,7 +61,7 @@ ul {
 
 /* Start Header */
 header {
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,7 +90,7 @@ header .nav {
 
 header .nav li, header .nav div {
   padding: 0 20px;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,11 +136,37 @@ header .nav .avatar span {
 header .nav li.logout {
   cursor: pointer;
 }
+
+@media(max-width: 767px) {
+  header .container{
+    width: 100%;
+    justify-content: space-around;
+  }
+  header .logo a {
+    font-size: 20px;
+  }
+  header .nav li:not(:first-child){
+    padding: 0 10px;
+  }
+  header .nav li.logout {
+    padding: 0 20px;
+  }
+  header .nav li a {
+    font-size: 15px;
+  }
+  header .nav .avatar span {
+    font-size: 14px;
+  }
+  header .nav .avatar img {
+    width: 35px;
+    height: 35px;
+  }
+}
 /* End Header */
 
 /* Start Profile */
 .profile {
-  margin: -20px 0;
+  margin: -16px 0;
 }
 
 .profile .profile-top {
@@ -150,8 +176,8 @@ header .nav li.logout {
 }
 
 .profile .profile-top .avatar img {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   border: 2px solid var(--primary-color);
 }
@@ -167,6 +193,19 @@ header .nav li.logout {
 .profile .profile-top h3 a:hover {
   text-decoration: underline;
   color: var(--sec-color);
+}
+
+@media(max-width: 767px) {
+  .profile {
+    margin: -2px 0;
+  }
+  .profile .profile-top .avatar img {
+    width: 75px;
+    height: 75px;
+  }
+  .profile .profile-top h3 a {
+    font-size: 18px;
+  }
 }
 /* End Profile */
 
@@ -373,6 +412,53 @@ header .nav li.logout {
 .posts .post .comment-content .text p {
   font-size: 14px;
   color: #333;
+}
+
+@media(max-width: 767px) {
+  .posts .post {
+    width: 100%;
+  }
+  .posts .post .top .avatar img {
+    width: 40px;
+    height: 40px;
+  }
+  .posts .post .top h4 a {
+    font-weight: normal;
+    font-size: 16px;
+  }
+  .posts .post #remove-post {
+    font-size: 20px;
+  }
+  .posts .post .center p {
+    font-size: 15px;
+  }
+  .posts .post .bottom i {
+    font-size: 25px;
+  }
+  .posts .post .bottom .comments {
+    font-size: 15px;
+  }
+  .posts .post .bottom .votes {
+    display: none;
+  }
+  .posts .post .left input {
+    width: 60%;
+    padding: 6px 12px;
+  }
+  .posts .post .left button {
+    padding: 6px 12px;
+  }
+  .posts .post .comment-content .avatar img {
+    width: 25px;
+    height: 25px;
+  }
+  .posts .post .comment-content .top a {
+    font-size: 13px;
+  }
+  .posts .post .comment-content .text p {
+    font-size: 13px;
+    color: #333;
+  }
 }
 /* End Posts */
 
