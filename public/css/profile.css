@@ -487,11 +487,18 @@ header .nav li.logout {
   background-color: #fff;
   margin: 60px auto;
   border-radius: 5px;
-  width: 50%;
+  width: 55%;
   text-align: center;
   display: none;
   z-index: 90;
 }
+
+@media (max-width: 991px) {
+  .popup {
+    width: 75%;
+  }
+}
+
 
 .popup form div {
   padding: 0 100px;
@@ -499,6 +506,15 @@ header .nav li.logout {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 767px) {
+  .popup {
+    width: 90%;
+  }
+  .popup form div {
+    padding: 0 40px;
+  }
 }
 
 .popup form textarea {

@@ -7,7 +7,7 @@ const homeAvatar = (userData) => {
   setTimeout(() => {
     avatarDiv.textContent = ''
     avatarDiv.appendChild(profileLink)
-  }, 5000)
+  }, 4000)
 
   const avatar = document.createElement('img')
   avatar.src = userData.avatar
