@@ -26,11 +26,15 @@ fetch(`/users/${userId}`)
   .catch((err) => console.log(err))
 
 const avatarDiv = document.querySelector('header .nav .avatar')
+avatarDiv.textContent = 'Waiting...'
 
 const homeAvatar = (userData) => {
   const profileLink = document.createElement('a')
   profileLink.href = `/profile/${userData.id}`
-  avatarDiv.appendChild(profileLink)
+  setTimeout(() => {
+    avatarDiv.textContent = ''
+    avatarDiv.appendChild(profileLink)
+  }, 1000)
 
   const avatar = document.createElement('img')
   avatar.src = userData.avatar
