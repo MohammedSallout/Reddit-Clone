@@ -3,17 +3,18 @@ const avatarDiv = document.querySelector('header .nav .avatar')
 const homeAvatar = (userData) => {
   const profileLink = document.createElement('a')
   profileLink.href = `/profile/${userData.id}`
-  avatarDiv.appendChild(profileLink)
+  setTimeout(() => {
+    avatarDiv.textContent = ''
+    avatarDiv.appendChild(profileLink)
+  }, 5000)
+  avatarDiv.textContent = 'Waiting...'
 
   const avatar = document.createElement('img')
   avatar.src = userData.avatar
   profileLink.appendChild(avatar)
 
   const userName = document.createElement('span')
-  userName.textContent = 'waiting...'
-  setTimeout(() => {
-    userName.textContent = userData.username
-  }, 3600)
+  userName.textContent = userData.username
   profileLink.appendChild(userName)
 }
 
