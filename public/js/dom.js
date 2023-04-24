@@ -1,4 +1,5 @@
 const avatarDiv = document.querySelector('header .nav .avatar')
+avatarDiv.textContent = 'Waiting...'
 
 const homeAvatar = (userData) => {
   const profileLink = document.createElement('a')
@@ -7,7 +8,6 @@ const homeAvatar = (userData) => {
     avatarDiv.textContent = ''
     avatarDiv.appendChild(profileLink)
   }, 5000)
-  avatarDiv.textContent = 'Waiting...'
 
   const avatar = document.createElement('img')
   avatar.src = userData.avatar
