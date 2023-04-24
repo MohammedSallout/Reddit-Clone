@@ -136,6 +136,32 @@ header .nav .avatar span {
 header .nav li.logout {
   cursor: pointer;
 }
+
+@media(max-width: 767px) {
+  header .container{
+    width: 100%;
+    justify-content: space-around;
+  }
+  header .logo a {
+    font-size: 20px;
+  }
+  header .nav li:not(:first-child){
+    padding: 0 10px;
+  }
+  header .nav li.logout {
+    padding: 0 20px;
+  }
+  header .nav li a {
+    font-size: 15px;
+  }
+  header .nav .avatar span {
+    font-size: 14px;
+  }
+  header .nav .avatar img {
+    width: 35px;
+    height: 35px;
+  }
+}
 /* End Header */
 
 /* Start Posts */
@@ -326,6 +352,50 @@ header .nav li.logout {
 .posts .post .comment-content .text p {
   font-size: 14px;
   color: #333;
+}
+
+@media(max-width: 767px) {
+  .posts .post {
+    width: 100%;
+  }
+  .posts .post .top .avatar img {
+    width: 40px;
+    height: 40px;
+  }
+  .posts .post .top h4 a {
+    font-weight: normal;
+    font-size: 16px;
+  }
+  .posts .post .center p {
+    font-size: 15px;
+  }
+  .posts .post .bottom i {
+    font-size: 25px;
+  }
+  .posts .post .bottom .comments {
+    font-size: 15px;
+  }
+  .posts .post .bottom .votes {
+    display: none;
+  }
+  .posts .post .left input {
+    width: 60%;
+    padding: 6px 12px;
+  }
+  .posts .post .left button {
+    padding: 6px 12px;
+  }
+  .posts .post .comment-content .avatar img {
+    width: 25px;
+    height: 25px;
+  }
+  .posts .post .comment-content .top a {
+    font-size: 13px;
+  }
+  .posts .post .comment-content .text p {
+    font-size: 13px;
+    color: #333;
+  }
 }
 /* End Posts */
 
