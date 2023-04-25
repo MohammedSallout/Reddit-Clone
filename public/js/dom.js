@@ -4,10 +4,8 @@ avatarDiv.textContent = 'Waiting...'
 const homeAvatar = (userData) => {
   const profileLink = document.createElement('a')
   profileLink.href = `/profile/${userData.id}`
-  setTimeout(() => {
-    avatarDiv.textContent = ''
-    avatarDiv.appendChild(profileLink)
-  }, 4000)
+  avatarDiv.textContent = ''
+  avatarDiv.appendChild(profileLink)
 
   const avatar = document.createElement('img')
   avatar.src = userData.avatar

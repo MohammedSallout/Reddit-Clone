@@ -1,6 +1,6 @@
 const profileTop = document.querySelector('.profile .profile-top')
 
-const userId = window.location.href.split('https://reddit-clone-gts5.onrender.com/profile/')[1]
+const userId = window.location.href.split('http://localhost:8000/profile/')[1]
 
 const userProfile = (userData) => {
   const avatarDiv = document.createElement('div')
@@ -31,10 +31,8 @@ avatarDiv.textContent = 'Waiting...'
 const homeAvatar = (userData) => {
   const profileLink = document.createElement('a')
   profileLink.href = `/profile/${userData.id}`
-  setTimeout(() => {
-    avatarDiv.textContent = ''
-    avatarDiv.appendChild(profileLink)
-  }, 1000)
+  avatarDiv.textContent = ''
+  avatarDiv.appendChild(profileLink)
 
   const avatar = document.createElement('img')
   avatar.src = userData.avatar
@@ -122,7 +120,7 @@ const postDOMElement = (postData) => {
     fetch('/users')
       .then((res) => res.json())
       .then((data) => data.forEach((userData) => {
-        if (userData.username === ele.username) {
+        if (userData.id === ele.user_id) {
           const deletePost = document.createElement('i')
           deletePost.id = 'remove-post'
           deletePost.className = 'fa-solid fa-trash-can'
