@@ -511,6 +511,7 @@ header .nav li.logout {
 @media (max-width: 767px) {
   .popup {
     width: 90%;
+    top: 17%;
   }
   .popup form div {
     padding: 0 40px;

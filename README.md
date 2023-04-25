@@ -57,4 +57,10 @@ Reddit is a social news website and forum where content is socially curated and 
 
 ---
 
+## Database Schema:
+
+<img src="https://i.ibb.co/hX54rgC/draw-SQL-reddit.png">
+
+---
+
 ## This app is presented to you by: [Mohammed Sallout](https://github.com/MohammedSallout)
