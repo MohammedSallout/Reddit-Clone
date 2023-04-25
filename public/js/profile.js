@@ -1,6 +1,6 @@
 const profileTop = document.querySelector('.profile .profile-top')
 
-const userId = window.location.href.split('http://localhost:8000/profile/')[1]
+const userId = window.location.href.split('https://reddit-clone-gts5.onrender.com/profile/')[1]
 
 const userProfile = (userData) => {
   const avatarDiv = document.createElement('div')
